@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="IDEAAPPModelStoreContainer" CdmEntityContainer="IDEAAPPEntities">
+    <EntitySetMapping Name="mvcCnfDireccion">
+      <EntityTypeMapping TypeName="IDEAAPPModel.mvcCnfDireccion">
+        <MappingFragment StoreEntitySet="mvcCnfDireccion">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Pagina" ColumnName="Pagina" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mvcCngConsecutivo">
+      <EntityTypeMapping TypeName="IDEAAPPModel.mvcCngConsecutivo">
+        <MappingFragment StoreEntitySet="mvcCngConsecutivo">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="PrefijoCot" ColumnName="PrefijoCot" />
+          <ScalarProperty Name="anio" ColumnName="anio" />
+          <ScalarProperty Name="NumeroCot" ColumnName="NumeroCot" />
+          <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mvcConfig">
+      <EntityTypeMapping TypeName="IDEAAPPModel.mvcConfig">
+        <MappingFragment StoreEntitySet="mvcConfig">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MonedaMat" ColumnName="MonedaMat" />
+          <ScalarProperty Name="MonedaServ" ColumnName="MonedaServ" />
+          <ScalarProperty Name="PorcImp" ColumnName="PorcImp" />
+          <ScalarProperty Name="MargenMat" ColumnName="MargenMat" />
+          <ScalarProperty Name="MargenMO" ColumnName="MargenMO" />
+          <ScalarProperty Name="PesoxDolar" ColumnName="PesoxDolar" />
+          <ScalarProperty Name="DolarxPeso" ColumnName="DolarxPeso" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Pagina" ColumnName="Pagina" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Ruta" ColumnName="Ruta" />
+          <ScalarProperty Name="TipoCambio" ColumnName="TipoCambio" />
+          <ScalarProperty Name="DiasCotizacion" ColumnName="DiasCotizacion" />
+          <ScalarProperty Name="MargenInd" ColumnName="MargenInd" />
+          <ScalarProperty Name="PorcIndMat" ColumnName="PorcIndMat" />
+          <ScalarProperty Name="PorcIndMO" ColumnName="PorcIndMO" />
+          <ScalarProperty Name="CondComer" ColumnName="CondComer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mvcConfigMail">
+      <EntityTypeMapping TypeName="IDEAAPPModel.mvcConfigMail">
+        <MappingFragment StoreEntitySet="mvcConfigMail">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="emailEnvio" ColumnName="emailEnvio" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="emailRecepcion" ColumnName="emailRecepcion" />
+          <ScalarProperty Name="asunto" ColumnName="asunto" />
+          <ScalarProperty Name="mensaje" ColumnName="mensaje" />
+          <ScalarProperty Name="puerto" ColumnName="puerto" />
+          <ScalarProperty Name="host" ColumnName="host" />
+          <ScalarProperty Name="User1" ColumnName="User1" />
+          <ScalarProperty Name="User2" ColumnName="User2" />
+          <ScalarProperty Name="User3" ColumnName="User3" />
+          <ScalarProperty Name="User4" ColumnName="User4" />
+          <ScalarProperty Name="User5" ColumnName="User5" />
+          <ScalarProperty Name="User6" ColumnName="User6" />
+          <ScalarProperty Name="User7" ColumnName="User7" />
+          <ScalarProperty Name="User8" ColumnName="User8" />
+          <ScalarProperty Name="User9" ColumnName="User9" />
+          <ScalarProperty Name="User10" ColumnName="User10" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mvcCStatus">
+      <EntityTypeMapping TypeName="IDEAAPPModel.mvcCStatus">
+        <MappingFragment StoreEntitySet="mvcCStatus">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mvcEmpleadosSL">
+      <EntityTypeMapping TypeName="IDEAAPPModel.mvcEmpleadosSL">
+        <MappingFragment StoreEntitySet="mvcEmpleadosSL">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mvcUsuario">
+      <EntityTypeMapping TypeName="IDEAAPPModel.mvcUsuario">
+        <MappingFragment StoreEntitySet="mvcUsuario">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="eMail" ColumnName="eMail" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="tipoUsuario" ColumnName="tipoUsuario" />
+          <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mvcUsuarioSL">
+      <EntityTypeMapping TypeName="IDEAAPPModel.mvcUsuarioSL">
+        <MappingFragment StoreEntitySet="mvcUsuarioSL">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
