@@ -1,0 +1,58 @@
+﻿@model List<CotizadorMVC.Models.TableViewModels.UserTableViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Usuarios</h2>
+<div class="row">
+    <div class="col-md-12">
+        <input type="button" class="btn btn-primary" onclick="document.location.href= '@Url.Content("~/User/Add")'" value="Nuevo" />
+        
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-lg-12">
+        <table class="table table-bordered">
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                
+                
+            </tr>
+            @foreach(var oElemento in Model)
+            {
+                <tr>
+                    <td>@oElemento.Id</td>
+                    <td>@oElemento.Email</td>
+                    <!--Botones para editar y eliminar registros-->
+                    <td>
+                        <!--Utilizando Ajax-->
+                        <input onclick="jsDelete(@oElemento.Id);" type="button" value="Eliminar" class="btn btn-danger"/>                        
+                        <input onclick="document.location.href='@Url.Content("~/User/Edit/" + oElemento.Id)'" type="button" value="Editar" class="btn btn-default"/>
+                    </td>
+                </tr>
+            }
+        </table>
+
+    </div>
+</div>
+
+<script>
+    function jsDelete(id) {
+        if (confirm("Estas seguro de eliminarlo?")) {
+            url = "@Url.Content("~/User/Delete")" + "/"+id;
+
+            $.post(url, function (data) {
+
+                if (data == "1") {
+                    document.location.href = "@Url.Content("~/User/")"
+                } else {
+                    alert("Ocurrio un error :(")
+                }
+
+            })
+        }
+    }
+</script>
