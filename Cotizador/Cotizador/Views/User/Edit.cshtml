@@ -1,0 +1,51 @@
+﻿@model Cotizador.Models.ViewModels.EditUserViewModel
+@{
+    ViewBag.Title = "Editar Usuario";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<!--Crear el formulario-->
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm("Edit", "User", FormMethod.Post, new { role = "form", @class = "" }))
+        {
+            <!--Enviarlo en la peticion pero no es visible-->
+            @Html.HiddenFor(d => d.Id)
+            <!--Seguridad, para evitar que hagan peticiones de fuera, crea un token interno.
+                Es importante ponerlo-->
+            @Html.AntiForgeryToken()
+            <!--Cuando haya algun error provocado por el data annotarions enviar este
+                mensaje-->
+            @Html.ValidationMessage("error", new { @class = "text-danger" })
+
+            <!--Añadir los campos del form
+                usando el LabelFor llena en automatico,
+                si se usa el de Label no llena en automatico-->
+            @Html.LabelFor(d => d.Email) <!--Label, mediante la funcion lambda va a poner lo creamos en el viewcontroller-->
+            <!--TextBox, mediante la funcion lambda va a referenciar el campo correspondiente.
+                con el metoo new se añaden las clases del control-->
+            @Html.TextBoxFor(d => d.Email, new { @class = "form-control" })
+            <!--Hacer que se muestren los mensajes de error-->
+            @Html.ValidationMessage("Email", new { @class = "text-danger" })  <br />
+
+            <!--Password-->
+            @Html.LabelFor(d => d.Password)
+            @Html.PasswordFor(d => d.Password, new { @class = "form-control" })
+            @Html.ValidationMessage("Password", new { @class = "text-danger" })<br />
+
+            <!--Confirmar-->
+            @Html.LabelFor(d => d.ConfirmPassword)
+            @Html.PasswordFor(d => d.ConfirmPassword, new { @class = "form-control" })
+            @Html.ValidationMessage("ConfirmPassword", new { @class = "text-danger" })<br />
+
+
+
+            <div style="text-align:right">
+                <input type="submit" class="btn btn-success" value="Guardar" />
+            </div>
+        }
+
+
+    </div>
+</div>

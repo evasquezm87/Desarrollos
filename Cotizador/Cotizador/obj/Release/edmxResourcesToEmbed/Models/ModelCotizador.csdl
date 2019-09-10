@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="IDEAAPPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="mvcCnfDireccion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ubicacion" Type="String" MaxLength="30" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Direccion" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Telefono" Type="String" MaxLength="60" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Pagina" Type="String" MaxLength="30" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Correo" Type="String" MaxLength="30" FixedLength="true" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mvcCngConsecutivo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Tipo" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="PrefijoCot" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="anio" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="NumeroCot" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Ubicacion" Type="String" MaxLength="30" FixedLength="true" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mvcConfig">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MonedaMat" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="MonedaServ" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="PorcImp" Type="Double" Nullable="false" />
+    <Property Name="MargenMat" Type="Double" Nullable="false" />
+    <Property Name="MargenMO" Type="Double" Nullable="false" />
+    <Property Name="PesoxDolar" Type="Double" Nullable="false" />
+    <Property Name="DolarxPeso" Type="Double" Nullable="false" />
+    <Property Name="Direccion" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Telefono" Type="String" MaxLength="60" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Pagina" Type="String" MaxLength="30" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Correo" Type="String" MaxLength="30" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Ruta" Type="String" MaxLength="60" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="TipoCambio" Type="Double" Nullable="false" />
+    <Property Name="DiasCotizacion" Type="Int32" Nullable="false" />
+    <Property Name="MargenInd" Type="Double" Nullable="false" />
+    <Property Name="PorcIndMat" Type="Double" Nullable="false" />
+    <Property Name="PorcIndMO" Type="Double" Nullable="false" />
+    <Property Name="CondComer" Type="String" MaxLength="2000" FixedLength="true" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mvcConfigMail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipo" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="emailEnvio" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="usuario" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="name" Type="String" MaxLength="60" FixedLength="true" Unicode="false" />
+    <Property Name="emailRecepcion" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="asunto" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="mensaje" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="puerto" Type="Int32" />
+    <Property Name="host" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="User1" Type="String" MaxLength="30" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="User2" Type="String" MaxLength="30" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="User3" Type="Double" Nullable="false" />
+    <Property Name="User4" Type="Double" Nullable="false" />
+    <Property Name="User5" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="User6" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="User7" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="User8" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="User9" Type="String" MaxLength="45" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="User10" Type="String" MaxLength="30" FixedLength="true" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mvcCStatus">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="30" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="mvcUsuario" Relationship="Self.FK_mvcUsuario_mvcCStatus" FromRole="mvcCStatus" ToRole="mvcUsuario" />
+  </EntityType>
+  <EntityType Name="mvcEmpleadosSL">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmpID" Type="String" MaxLength="30" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="status" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mvcUsuario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="eMail" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="200" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="tipoUsuario" Type="Int32" Nullable="false" />
+    <Property Name="idEmpleado" Type="Int32" Nullable="false" />
+    <Property Name="status" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="mvcCStatus" Relationship="Self.FK_mvcUsuario_mvcCStatus" FromRole="mvcUsuario" ToRole="mvcCStatus" />
+  </EntityType>
+  <EntityType Name="mvcUsuarioSL">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userID" Type="String" MaxLength="30" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="status" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_mvcUsuario_mvcCStatus">
+    <End Role="mvcCStatus" Type="Self.mvcCStatus" Multiplicity="1" />
+    <End Role="mvcUsuario" Type="Self.mvcUsuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mvcCStatus">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="mvcUsuario">
+        <PropertyRef Name="status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="IDEAAPPEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="mvcCnfDireccion" EntityType="Self.mvcCnfDireccion" />
+    <EntitySet Name="mvcCngConsecutivo" EntityType="Self.mvcCngConsecutivo" />
+    <EntitySet Name="mvcConfig" EntityType="Self.mvcConfig" />
+    <EntitySet Name="mvcConfigMail" EntityType="Self.mvcConfigMail" />
+    <EntitySet Name="mvcCStatus" EntityType="Self.mvcCStatus" />
+    <EntitySet Name="mvcEmpleadosSL" EntityType="Self.mvcEmpleadosSL" />
+    <EntitySet Name="mvcUsuario" EntityType="Self.mvcUsuario" />
+    <EntitySet Name="mvcUsuarioSL" EntityType="Self.mvcUsuarioSL" />
+    <AssociationSet Name="FK_mvcUsuario_mvcCStatus" Association="Self.FK_mvcUsuario_mvcCStatus">
+      <End Role="mvcCStatus" EntitySet="mvcCStatus" />
+      <End Role="mvcUsuario" EntitySet="mvcUsuario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

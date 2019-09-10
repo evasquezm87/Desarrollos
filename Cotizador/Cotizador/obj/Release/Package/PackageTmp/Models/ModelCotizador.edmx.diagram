@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="18fddfb5d93f48b1bb96d3f9bbdd6717" Name="Diagram1">
+        <EntityTypeShape EntityType="IDEAAPPModel.mvcCnfDireccion" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IDEAAPPModel.mvcCngConsecutivo" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IDEAAPPModel.mvcConfig" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IDEAAPPModel.mvcConfigMail" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IDEAAPPModel.mvcCStatus" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IDEAAPPModel.mvcEmpleadosSL" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IDEAAPPModel.mvcUsuario" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="IDEAAPPModel.mvcUsuarioSL" Width="1.5" PointX="2.875" PointY="7.625" IsExpanded="true" />
+        <AssociationConnector Association="IDEAAPPModel.FK_mvcUsuario_mvcCStatus" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
