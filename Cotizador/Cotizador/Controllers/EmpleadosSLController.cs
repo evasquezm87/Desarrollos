@@ -69,7 +69,7 @@ namespace Cotizador.Controllers
 
         public ActionResult Edit(int Id)
         {
-
+            
             EditEmpleadosSLViewModel model = new EditEmpleadosSLViewModel();
 
             /*var.- se crea el tipo de objeto que se le asigna sin importar el tipo

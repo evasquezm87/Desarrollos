@@ -1,6 +1,8 @@
 ﻿@model Cotizador.Models.ViewModels.EditUserViewModel
 @{
     ViewBag.Title = "Editar Usuario";
+    //Para recibir el listado de empleados para llevar el dropdownlist
+    List<SelectListItem> items = (List<SelectListItem>)ViewBag.items;
 }
 
 <h2>@ViewBag.Title</h2>
@@ -39,7 +41,16 @@
             @Html.PasswordFor(d => d.ConfirmPassword, new { @class = "form-control" })
             @Html.ValidationMessage("ConfirmPassword", new { @class = "text-danger" })<br />
 
+            
+            <!--Crear el listado de los empleados no guarda datos en el modelo-->
+            //@Html.DropDownList("items", items, "Selecciona un Empleado", new { @class = "form-control" })-->
+            //@Html.ValidationMessage("EmpleadoSL", new { @class = "text-danger" })<br />-->
 
+            <!--Empleado SL-->
+            //Falta validar que si no seleccionan valor no continue@Html.DropDownListFor(d => d.EmpleadoSL, items, "Selecciona un Empleado", new { @class = "form-control" })
+            @Html.LabelFor(d => d.EmpleadoSL)
+            @Html.DropDownListFor(d => d.EmpleadoSL, items, new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.EmpleadoSL)
 
             <div style="text-align:right">
                 <input type="submit" class="btn btn-success" value="Guardar" />

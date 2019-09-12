@@ -26,6 +26,9 @@ namespace Cotizador.Controllers
                            Email = d.eMail
                        }).ToList();
             }
+
+
+
             //Regresa la vista y le envia un list
             return View(lst);
         }
@@ -68,6 +71,7 @@ namespace Cotizador.Controllers
 
         public ActionResult Edit(int Id)
         {
+            //Es para capturar los datos del usuario
 
             EditUserViewModel model = new EditUserViewModel();
 
@@ -85,8 +89,37 @@ namespace Cotizador.Controllers
                 var oUser = db.mvcUsuario.Find(Id);
                 model.Email = oUser.eMail.Trim();//Obligatorio el trim en los string para las validaciones annotations
                 model.Id = oUser.id;
+                model.EmpleadoSL = oUser.idEmpleado;
 
             }
+
+
+            //Enviar listado de empleados en el viewbag para el dropdownlist
+            List<EmpleadosSLViewModel> lstEmpleados = null;
+            using (IDEAAPPEntities db = new IDEAAPPEntities())
+            {
+                lstEmpleados = (from d in db.mvcEmpleadosSL
+                                select new EmpleadosSLViewModel
+                                {
+                                    Id = d.id,
+                                    empId = d.EmpID,
+                                    Nombre = d.Name
+                                }).ToList();
+            }
+
+            List<SelectListItem> items = lstEmpleados.ConvertAll(d =>
+
+            {
+                return new SelectListItem()
+                {
+                    Text = d.empId.ToString() + " - " + d.Nombre.ToString(),
+                    Value = d.Id.ToString(),
+                    Selected = false
+                };
+            });
+
+            ViewBag.items = items;
+            //Termina de llenar los datos para el dropdownlist
 
             //recibe el modelo con los datos para que lo llene
             return View(model);
@@ -107,6 +140,8 @@ namespace Cotizador.Controllers
 
                 //Agregar lo editado
                 oUser.eMail = model.Email.Trim();
+                oUser.idEmpleado = model.EmpleadoSL;
+                
 
                 //Es para actualizar el password, como no es obligatorio se añade la condicion
                 //El trim debe hacerse solo despues de verificar que no sea null

@@ -37,6 +37,10 @@
             @Html.PasswordFor(d => d.ConfirmPassword, new { @class = "form-control" })
             @Html.ValidationMessage("ConfirmPassword", new { @class = "text-danger" })<br />
 
+            <!--Empleado SL-->
+            @Html.LabelFor(d => d.EmpleadoSL)
+            @Html.TextBoxFor(d => d.EmpleadoSL, new { @class = "form-control" })
+            @Html.ValidationMessage("EmpleadoSL", new { @class = "text-danger" })<br />
 
 
             <div style="text-align:right">

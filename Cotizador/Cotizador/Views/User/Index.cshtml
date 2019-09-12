@@ -18,7 +18,7 @@
             <tr>
                 <th>Id</th>
                 <th>Email</th>
-
+                <th>Empleado SL</th>
 
             </tr>
             @foreach (var oElemento in Model)
@@ -26,6 +26,8 @@
                 <tr>
                     <td>@oElemento.Id</td>
                     <td>@oElemento.Email</td>
+                    <td>@oElemento.EmpleadoSL</td>
+
                     <!--Botones para editar y eliminar registros-->
                     <td>
                         <!--Utilizando Ajax-->

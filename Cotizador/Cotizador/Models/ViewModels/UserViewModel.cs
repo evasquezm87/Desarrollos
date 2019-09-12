@@ -26,6 +26,11 @@ namespace Cotizador.Models.ViewModels
         [Display(Name = "Confirmar Contraseña")]
         [Compare("Password", ErrorMessage = "Las contraseñas no son iguales")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [StringLength(30, ErrorMessage = "El {0} debe tener almenos {1} caracteres", MinimumLength = 1)]
+        [Display(Name = "Empleado SL")]
+        public string EmpleadoSL { get; set; }
     }
 
     /*Clase modelo para editar registros
@@ -37,7 +42,6 @@ namespace Cotizador.Models.ViewModels
         [Required]
         [EmailAddress]
         [StringLength(30, ErrorMessage = "El {0} debe tener almenos {1} caracteres", MinimumLength = 1)]
-
         [Display(Name = "Correo Electrónico")]
         public string Email { get; set; }
 
@@ -50,5 +54,14 @@ namespace Cotizador.Models.ViewModels
         [Display(Name = "Confirmar Contraseña")]
         [Compare("Password", ErrorMessage = "Las contraseñas no son iguales")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        //[StringLength(30, ErrorMessage = "El {0} debe tener almenos {1} caracteres", MinimumLength = 1)]
+        [Display(Name = "Empleado SL")]
+        public int EmpleadoSL { get; set; }
+
+        
+        
     }
+    
 }
