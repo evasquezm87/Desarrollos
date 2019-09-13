@@ -12,21 +12,22 @@ namespace Cotizador.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class mvcCStatus
+    public partial class mvcCotizacionEnc
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public mvcCStatus()
+        public mvcCotizacionEnc()
         {
-            this.mvcUsuario = new HashSet<mvcUsuario>();
-            this.mvcEmpleadosSL = new HashSet<mvcEmpleadosSL>();
+            this.mvcCotizacionDet = new HashSet<mvcCotizacionDet>();
         }
     
         public int id { get; set; }
-        public string descripcion { get; set; }
+        public string NoCotizacion { get; set; }
+        public string Descripcion { get; set; }
+        public int CustId { get; set; }
+        public double Monto { get; set; }
+        public int status { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<mvcUsuario> mvcUsuario { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<mvcEmpleadosSL> mvcEmpleadosSL { get; set; }
+        public virtual ICollection<mvcCotizacionDet> mvcCotizacionDet { get; set; }
     }
 }

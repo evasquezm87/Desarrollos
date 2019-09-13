@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="IDEAAPPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="IDEAAPPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="mvcCnfDireccion">
           <Key>
             <PropertyRef Name="Id" />
@@ -77,6 +77,29 @@
           <Property Name="User9" Type="char" MaxLength="45" Nullable="false" />
           <Property Name="User10" Type="char" MaxLength="30" Nullable="false" />
         </EntityType>
+        <EntityType Name="mvcCotizacionDet">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idCotEnc" Type="int" Nullable="false" />
+          <Property Name="InvtId" Type="int" Nullable="false" />
+          <Property Name="Cantidad" Type="float" Nullable="false" />
+          <Property Name="PrecioUnitario" Type="float" Nullable="false" />
+          <Property Name="MontoTotal" Type="float" Nullable="false" />
+          <Property Name="status" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mvcCotizacionEnc">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NoCotizacion" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="Descripcion" Type="char" MaxLength="100" Nullable="false" />
+          <Property Name="CustId" Type="int" Nullable="false" />
+          <Property Name="Monto" Type="float" Nullable="false" />
+          <Property Name="status" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="mvcCStatus">
           <Key>
             <PropertyRef Name="id" />
@@ -113,6 +136,30 @@
           <Property Name="Name" Type="char" MaxLength="100" Nullable="false" />
           <Property Name="status" Type="int" Nullable="false" />
         </EntityType>
+        <Association Name="FK_mvcCotizacionDet_mvcCotizacionEnc">
+          <End Role="mvcCotizacionEnc" Type="Self.mvcCotizacionEnc" Multiplicity="1" />
+          <End Role="mvcCotizacionDet" Type="Self.mvcCotizacionDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mvcCotizacionEnc">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="mvcCotizacionDet">
+              <PropertyRef Name="idCotEnc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_mvcEmpleadosSL_mvcCStatus">
+          <End Role="mvcCStatus" Type="Self.mvcCStatus" Multiplicity="1" />
+          <End Role="mvcEmpleadosSL" Type="Self.mvcEmpleadosSL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mvcCStatus">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="mvcEmpleadosSL">
+              <PropertyRef Name="status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_mvcUsuario_mvcCStatus">
           <End Role="mvcCStatus" Type="Self.mvcCStatus" Multiplicity="1" />
           <End Role="mvcUsuario" Type="Self.mvcUsuario" Multiplicity="*" />
@@ -130,17 +177,26 @@
           <EntitySet Name="mvcCngConsecutivo" EntityType="Self.mvcCngConsecutivo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="mvcConfig" EntityType="Self.mvcConfig" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="mvcConfigMail" EntityType="Self.mvcConfigMail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mvcCotizacionDet" EntityType="Self.mvcCotizacionDet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mvcCotizacionEnc" EntityType="Self.mvcCotizacionEnc" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="mvcCStatus" EntityType="Self.mvcCStatus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="mvcEmpleadosSL" EntityType="Self.mvcEmpleadosSL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="mvcUsuario" EntityType="Self.mvcUsuario" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="mvcUsuarioSL" EntityType="Self.mvcUsuarioSL" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_mvcCotizacionDet_mvcCotizacionEnc" Association="Self.FK_mvcCotizacionDet_mvcCotizacionEnc">
+            <End Role="mvcCotizacionEnc" EntitySet="mvcCotizacionEnc" />
+            <End Role="mvcCotizacionDet" EntitySet="mvcCotizacionDet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_mvcEmpleadosSL_mvcCStatus" Association="Self.FK_mvcEmpleadosSL_mvcCStatus">
+            <End Role="mvcCStatus" EntitySet="mvcCStatus" />
+            <End Role="mvcEmpleadosSL" EntitySet="mvcEmpleadosSL" />
+          </AssociationSet>
           <AssociationSet Name="FK_mvcUsuario_mvcCStatus" Association="Self.FK_mvcUsuario_mvcCStatus">
             <End Role="mvcCStatus" EntitySet="mvcCStatus" />
             <End Role="mvcUsuario" EntitySet="mvcUsuario" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="IDEAAPPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -223,6 +279,7 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="descripcion" Type="String" MaxLength="30" FixedLength="true" Unicode="false" Nullable="false" />
           <NavigationProperty Name="mvcUsuario" Relationship="Self.FK_mvcUsuario_mvcCStatus" FromRole="mvcCStatus" ToRole="mvcUsuario" />
+          <NavigationProperty Name="mvcEmpleadosSL" Relationship="IDEAAPPModel.FK_mvcEmpleadosSL_mvcCStatus" FromRole="mvcCStatus" ToRole="mvcEmpleadosSL" />
         </EntityType>
         <EntityType Name="mvcEmpleadosSL">
           <Key>
@@ -232,6 +289,7 @@
           <Property Name="EmpID" Type="String" MaxLength="30" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="status" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="mvcCStatus" Relationship="IDEAAPPModel.FK_mvcEmpleadosSL_mvcCStatus" FromRole="mvcEmpleadosSL" ToRole="mvcCStatus" />
         </EntityType>
         <EntityType Name="mvcUsuario">
           <Key>
@@ -279,7 +337,66 @@
             <End Role="mvcCStatus" EntitySet="mvcCStatus" />
             <End Role="mvcUsuario" EntitySet="mvcUsuario" />
           </AssociationSet>
+          <EntitySet Name="mvcCotizacionDet" EntityType="IDEAAPPModel.mvcCotizacionDet" />
+          <EntitySet Name="mvcCotizacionEnc" EntityType="IDEAAPPModel.mvcCotizacionEnc" />
+          <AssociationSet Name="FK_mvcCotizacionDet_mvcCotizacionEnc" Association="IDEAAPPModel.FK_mvcCotizacionDet_mvcCotizacionEnc">
+            <End Role="mvcCotizacionEnc" EntitySet="mvcCotizacionEnc" />
+            <End Role="mvcCotizacionDet" EntitySet="mvcCotizacionDet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_mvcEmpleadosSL_mvcCStatus" Association="IDEAAPPModel.FK_mvcEmpleadosSL_mvcCStatus">
+            <End Role="mvcCStatus" EntitySet="mvcCStatus" />
+            <End Role="mvcEmpleadosSL" EntitySet="mvcEmpleadosSL" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="mvcCotizacionDet">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idCotEnc" Type="Int32" Nullable="false" />
+          <Property Name="InvtId" Type="Int32" Nullable="false" />
+          <Property Name="Cantidad" Type="Double" Nullable="false" />
+          <Property Name="PrecioUnitario" Type="Double" Nullable="false" />
+          <Property Name="MontoTotal" Type="Double" Nullable="false" />
+          <Property Name="status" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="mvcCotizacionEnc" Relationship="IDEAAPPModel.FK_mvcCotizacionDet_mvcCotizacionEnc" FromRole="mvcCotizacionDet" ToRole="mvcCotizacionEnc" />
+        </EntityType>
+        <EntityType Name="mvcCotizacionEnc">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NoCotizacion" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="CustId" Type="Int32" Nullable="false" />
+          <Property Name="Monto" Type="Double" Nullable="false" />
+          <Property Name="status" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="mvcCotizacionDet" Relationship="IDEAAPPModel.FK_mvcCotizacionDet_mvcCotizacionEnc" FromRole="mvcCotizacionEnc" ToRole="mvcCotizacionDet" />
+        </EntityType>
+        <Association Name="FK_mvcCotizacionDet_mvcCotizacionEnc">
+          <End Type="IDEAAPPModel.mvcCotizacionEnc" Role="mvcCotizacionEnc" Multiplicity="1" />
+          <End Type="IDEAAPPModel.mvcCotizacionDet" Role="mvcCotizacionDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mvcCotizacionEnc">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="mvcCotizacionDet">
+              <PropertyRef Name="idCotEnc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_mvcEmpleadosSL_mvcCStatus">
+          <End Type="IDEAAPPModel.mvcCStatus" Role="mvcCStatus" Multiplicity="1" />
+          <End Type="IDEAAPPModel.mvcEmpleadosSL" Role="mvcEmpleadosSL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mvcCStatus">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="mvcEmpleadosSL">
+              <PropertyRef Name="status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -399,6 +516,31 @@
                 <ScalarProperty Name="userID" ColumnName="userID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mvcCotizacionDet">
+            <EntityTypeMapping TypeName="IDEAAPPModel.mvcCotizacionDet">
+              <MappingFragment StoreEntitySet="mvcCotizacionDet">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="MontoTotal" ColumnName="MontoTotal" />
+                <ScalarProperty Name="PrecioUnitario" ColumnName="PrecioUnitario" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="InvtId" ColumnName="InvtId" />
+                <ScalarProperty Name="idCotEnc" ColumnName="idCotEnc" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mvcCotizacionEnc">
+            <EntityTypeMapping TypeName="IDEAAPPModel.mvcCotizacionEnc">
+              <MappingFragment StoreEntitySet="mvcCotizacionEnc">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="CustId" ColumnName="CustId" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="NoCotizacion" ColumnName="NoCotizacion" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

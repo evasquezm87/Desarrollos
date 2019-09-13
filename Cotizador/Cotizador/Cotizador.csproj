@@ -170,6 +170,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CotizacionDetController.cs" />
+    <Compile Include="Controllers\CotizacionEncController.cs" />
     <Compile Include="Controllers\EmpleadosSLController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -210,6 +212,12 @@
     <Compile Include="Models\mvcConfigMail.cs">
       <DependentUpon>ModelCotizador.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\mvcCotizacionDet.cs">
+      <DependentUpon>ModelCotizador.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\mvcCotizacionEnc.cs">
+      <DependentUpon>ModelCotizador.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\mvcCStatus.cs">
       <DependentUpon>ModelCotizador.tt</DependentUpon>
     </Compile>
@@ -222,8 +230,12 @@
     <Compile Include="Models\mvcUsuarioSL.cs">
       <DependentUpon>ModelCotizador.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\TableViewModels\CotizacionDetTableViewModel.cs" />
+    <Compile Include="Models\TableViewModels\CotizacionEncTableViewModel.cs" />
     <Compile Include="Models\TableViewModels\EmpleadosSLTableViewModel.cs" />
     <Compile Include="Models\TableViewModels\UserTableViewModel.cs" />
+    <Compile Include="Models\ViewModels\CotizacionDetViewModel.cs" />
+    <Compile Include="Models\ViewModels\CotizacionEncViewModel.cs" />
     <Compile Include="Models\ViewModels\EmpleadosSLViewModel.cs" />
     <Compile Include="Models\ViewModels\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -312,6 +324,11 @@
     <Content Include="Views\EmpleadosSL\Edit.cshtml" />
     <Content Include="Views\EmpleadosSL\Delete.cshtml" />
     <Content Include="Views\Menu\Index.cshtml" />
+    <Content Include="Views\CotizacionEnc\Index.cshtml" />
+    <Content Include="Views\CotizacionEnc\Add.cshtml" />
+    <Content Include="Views\CotizacionEnc\Edit.cshtml" />
+    <Content Include="Views\CotizacionDet\Index.cshtml" />
+    <Content Include="Views\CotizacionDet\Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

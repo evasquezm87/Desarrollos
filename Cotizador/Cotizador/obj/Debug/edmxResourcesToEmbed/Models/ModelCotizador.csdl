@@ -79,6 +79,7 @@
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="descripcion" Type="String" MaxLength="30" FixedLength="true" Unicode="false" Nullable="false" />
     <NavigationProperty Name="mvcUsuario" Relationship="Self.FK_mvcUsuario_mvcCStatus" FromRole="mvcCStatus" ToRole="mvcUsuario" />
+    <NavigationProperty Name="mvcEmpleadosSL" Relationship="IDEAAPPModel.FK_mvcEmpleadosSL_mvcCStatus" FromRole="mvcCStatus" ToRole="mvcEmpleadosSL" />
   </EntityType>
   <EntityType Name="mvcEmpleadosSL">
     <Key>
@@ -88,6 +89,7 @@
     <Property Name="EmpID" Type="String" MaxLength="30" FixedLength="true" Unicode="false" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
     <Property Name="status" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="mvcCStatus" Relationship="IDEAAPPModel.FK_mvcEmpleadosSL_mvcCStatus" FromRole="mvcEmpleadosSL" ToRole="mvcCStatus" />
   </EntityType>
   <EntityType Name="mvcUsuario">
     <Key>
@@ -135,5 +137,64 @@
       <End Role="mvcCStatus" EntitySet="mvcCStatus" />
       <End Role="mvcUsuario" EntitySet="mvcUsuario" />
     </AssociationSet>
+    <EntitySet Name="mvcCotizacionDet" EntityType="IDEAAPPModel.mvcCotizacionDet" />
+    <EntitySet Name="mvcCotizacionEnc" EntityType="IDEAAPPModel.mvcCotizacionEnc" />
+    <AssociationSet Name="FK_mvcCotizacionDet_mvcCotizacionEnc" Association="IDEAAPPModel.FK_mvcCotizacionDet_mvcCotizacionEnc">
+      <End Role="mvcCotizacionEnc" EntitySet="mvcCotizacionEnc" />
+      <End Role="mvcCotizacionDet" EntitySet="mvcCotizacionDet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_mvcEmpleadosSL_mvcCStatus" Association="IDEAAPPModel.FK_mvcEmpleadosSL_mvcCStatus">
+      <End Role="mvcCStatus" EntitySet="mvcCStatus" />
+      <End Role="mvcEmpleadosSL" EntitySet="mvcEmpleadosSL" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="mvcCotizacionDet">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idCotEnc" Type="Int32" Nullable="false" />
+    <Property Name="InvtId" Type="Int32" Nullable="false" />
+    <Property Name="Cantidad" Type="Double" Nullable="false" />
+    <Property Name="PrecioUnitario" Type="Double" Nullable="false" />
+    <Property Name="MontoTotal" Type="Double" Nullable="false" />
+    <Property Name="status" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="mvcCotizacionEnc" Relationship="IDEAAPPModel.FK_mvcCotizacionDet_mvcCotizacionEnc" FromRole="mvcCotizacionDet" ToRole="mvcCotizacionEnc" />
+  </EntityType>
+  <EntityType Name="mvcCotizacionEnc">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NoCotizacion" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="CustId" Type="Int32" Nullable="false" />
+    <Property Name="Monto" Type="Double" Nullable="false" />
+    <Property Name="status" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="mvcCotizacionDet" Relationship="IDEAAPPModel.FK_mvcCotizacionDet_mvcCotizacionEnc" FromRole="mvcCotizacionEnc" ToRole="mvcCotizacionDet" />
+  </EntityType>
+  <Association Name="FK_mvcCotizacionDet_mvcCotizacionEnc">
+    <End Type="IDEAAPPModel.mvcCotizacionEnc" Role="mvcCotizacionEnc" Multiplicity="1" />
+    <End Type="IDEAAPPModel.mvcCotizacionDet" Role="mvcCotizacionDet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mvcCotizacionEnc">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="mvcCotizacionDet">
+        <PropertyRef Name="idCotEnc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_mvcEmpleadosSL_mvcCStatus">
+    <End Type="IDEAAPPModel.mvcCStatus" Role="mvcCStatus" Multiplicity="1" />
+    <End Type="IDEAAPPModel.mvcEmpleadosSL" Role="mvcEmpleadosSL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mvcCStatus">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="mvcEmpleadosSL">
+        <PropertyRef Name="status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

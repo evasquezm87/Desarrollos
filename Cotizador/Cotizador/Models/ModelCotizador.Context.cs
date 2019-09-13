@@ -33,5 +33,7 @@ namespace Cotizador.Models
         public virtual DbSet<mvcEmpleadosSL> mvcEmpleadosSL { get; set; }
         public virtual DbSet<mvcUsuario> mvcUsuario { get; set; }
         public virtual DbSet<mvcUsuarioSL> mvcUsuarioSL { get; set; }
+        public virtual DbSet<mvcCotizacionDet> mvcCotizacionDet { get; set; }
+        public virtual DbSet<mvcCotizacionEnc> mvcCotizacionEnc { get; set; }
     }
 }

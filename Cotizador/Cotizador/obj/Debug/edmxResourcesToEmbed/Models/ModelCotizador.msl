@@ -117,5 +117,30 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="mvcCotizacionDet">
+      <EntityTypeMapping TypeName="IDEAAPPModel.mvcCotizacionDet">
+        <MappingFragment StoreEntitySet="mvcCotizacionDet">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="MontoTotal" ColumnName="MontoTotal" />
+          <ScalarProperty Name="PrecioUnitario" ColumnName="PrecioUnitario" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="InvtId" ColumnName="InvtId" />
+          <ScalarProperty Name="idCotEnc" ColumnName="idCotEnc" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mvcCotizacionEnc">
+      <EntityTypeMapping TypeName="IDEAAPPModel.mvcCotizacionEnc">
+        <MappingFragment StoreEntitySet="mvcCotizacionEnc">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+          <ScalarProperty Name="CustId" ColumnName="CustId" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="NoCotizacion" ColumnName="NoCotizacion" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

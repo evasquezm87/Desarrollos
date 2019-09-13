@@ -14,6 +14,10 @@
         <EntityTypeShape EntityType="IDEAAPPModel.mvcUsuario" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="IDEAAPPModel.mvcUsuarioSL" Width="1.5" PointX="2.875" PointY="7.625" IsExpanded="true" />
         <AssociationConnector Association="IDEAAPPModel.FK_mvcUsuario_mvcCStatus" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="IDEAAPPModel.mvcCotizacionDet" Width="1.5" PointX="11.625" PointY="1" />
+        <EntityTypeShape EntityType="IDEAAPPModel.mvcCotizacionEnc" Width="1.5" PointX="9.375" PointY="1" />
+        <AssociationConnector Association="IDEAAPPModel.FK_mvcCotizacionDet_mvcCotizacionEnc" />
+        <AssociationConnector Association="IDEAAPPModel.FK_mvcEmpleadosSL_mvcCStatus" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -1,0 +1,77 @@
+﻿@model List<Cotizador.Models.TableViewModels.CotizacionDetTableViewModel>
+@{
+    ViewBag.Title = "Index Detalle Cotización";
+    //Para recibir el listado de empleados para llevar el dropdownlist
+    int idCotEnc = (int)ViewBag.idCotEnc;
+}
+
+<h2>Cotizaciones</h2>
+<div class="row">
+    <div class="col-md-12">        
+        <input type="button" class="btn btn-primary" onclick="document.location.href= '@Url.Content("~/CotizacionEnc/")'" value="Cotizaciones" />
+
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-lg-12">
+        <table class="table table-bordered">
+            <tr>
+                <th>Id</th>
+                <th>No. Cotización</th>
+                <th>InvtID</th>
+                <th>Cantidad</th>
+                <th>Precio Unitario</th>
+                <th>Monto Total</th>
+                <th>Acciones</th>
+
+            </tr>
+            @{//int idCotEnc = 0;
+                //idCotEnc = Model[0].idCotEnc;
+                }
+
+            @foreach (var oElemento in Model)
+            {
+                <tr>
+                    <td>@oElemento.id</td>
+                    <td>@oElemento.idCotEnc</td>
+                    <td>@oElemento.InvtId</td>
+                    <td>@oElemento.Cantidad</td>
+                    <td>@oElemento.PrecioUnitario</td>
+                    <td>@oElemento.MontoTotal</td>
+
+                    <!--Botones para editar y eliminar registros-->
+                    <td>
+                        <!--Utilizando Ajax-->
+                        <input onclick="jsDelete(@oElemento.id);" type="button" value="Eliminar" class="btn btn-danger" />
+                        <input onclick="document.location.href='@Url.Content("~/CotizacionDet/Edit/" + oElemento.id)'" type="button" value="Editar" class="btn btn-default" />
+                    </td>
+                </tr>
+
+               //idCotEnc = oElemento.idCotEnc; 
+                    }
+        </table>
+
+        <input type="button" class="btn btn-primary" onclick="document.location.href= '@Url.Content("~/CotizacionDet/Add/" + idCotEnc)'"  value="Nuevo" />
+
+    </div>
+</div>
+
+<script>
+    function jsDelete(id) {
+        if (confirm("Estas seguro de eliminarlo?")) {
+            url = "@Url.Content("~/CotizacionDet/Delete")" + "/"+id;
+
+            $.post(url, function (data) {
+
+                if (data == "1") {
+                    document.location.href = "@Url.Content("~/CotizacionDet/")"
+                } else {
+                    alert("Ocurrio un error :(")
+                }
+
+            })
+        }
+    }
+</script>
+

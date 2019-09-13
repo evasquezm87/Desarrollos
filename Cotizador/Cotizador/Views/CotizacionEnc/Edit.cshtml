@@ -1,0 +1,52 @@
+﻿@model Cotizador.Models.ViewModels.EditCotizacionEncViewModel
+@{
+    ViewBag.Title = "Editar Cotizacion";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<!--Crear el formulario-->
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm("Edit", "CotizacionEnc", FormMethod.Post, new { role = "form", @class = "" }))
+        {
+            <!--Enviarlo en la peticion pero no es visible-->
+            @Html.HiddenFor(d => d.id)
+            <!--Seguridad, para evitar que hagan peticiones de fuera, crea un token interno.
+                Es importante ponerlo-->
+            @Html.AntiForgeryToken()
+            <!--Cuando haya algun error provocado por el data annotarions enviar este
+                mensaje-->
+            @Html.ValidationMessage("error", new { @class = "text-danger" })
+
+            <!--Añadir los campos del form
+                usando el LabelFor llena en automatico,
+                si se usa el de Label no llena en automatico-->
+            @Html.LabelFor(d => d.NoCotizacion) <!--Label, mediante la funcion lambda va a poner lo creamos en el viewcontroller-->
+            <!--TextBox, mediante la funcion lambda va a referenciar el campo correspondiente.
+                con el metoo new se añaden las clases del control-->
+            @Html.TextBoxFor(d => d.NoCotizacion, new { @class = "form-control" })
+            <!--Hacer que se muestren los mensajes de error-->
+            @Html.ValidationMessage("NoCotizacion", new { @class = "text-danger" })  <br />
+
+            @Html.LabelFor(d => d.Descripcion)
+            @Html.TextBoxFor(d => d.Descripcion, new { @class = "form-control" })
+            @Html.ValidationMessage("Descripcion", new { @class = "text-danger" })<br />
+
+            @Html.LabelFor(d => d.CustId)
+            @Html.TextBoxFor(d => d.CustId, new { @class = "form-control" })
+            @Html.ValidationMessage("CustId", new { @class = "text-danger" })<br />
+
+            @Html.LabelFor(d => d.Monto)
+            @Html.TextBoxFor(d => d.Monto, new { @class = "form-control" })
+            @Html.ValidationMessage("Monto", new { @class = "text-danger" })<br />
+
+
+            <div style="text-align:right">
+                <input type="submit" class="btn btn-success" value="Guardar" />
+            </div>
+        }
+
+
+    </div>
+</div>

@@ -12,13 +12,16 @@ namespace Cotizador.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class mvcEmpleadosSL
+    public partial class mvcCotizacionDet
     {
         public int id { get; set; }
-        public string EmpID { get; set; }
-        public string Name { get; set; }
+        public int idCotEnc { get; set; }
+        public int InvtId { get; set; }
+        public double Cantidad { get; set; }
+        public double PrecioUnitario { get; set; }
+        public double MontoTotal { get; set; }
         public int status { get; set; }
     
-        public virtual mvcCStatus mvcCStatus { get; set; }
+        public virtual mvcCotizacionEnc mvcCotizacionEnc { get; set; }
     }
 }

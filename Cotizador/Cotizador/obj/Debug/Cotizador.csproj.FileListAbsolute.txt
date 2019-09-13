@@ -85,4 +85,3 @@ C:\Users\Admin\Desktop\Desarrollos\Desarrollos\Cotizador\Cotizador\bin\es\Micros
 C:\Users\Admin\Desktop\Desarrollos\Desarrollos\Cotizador\Cotizador\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
 C:\Users\Admin\Desktop\Desarrollos\Desarrollos\Cotizador\Cotizador\obj\Debug\Cotizador.dll
 C:\Users\Admin\Desktop\Desarrollos\Desarrollos\Cotizador\Cotizador\obj\Debug\Cotizador.pdb
-C:\Users\Admin\Desktop\Desarrollos\Desarrollos\Cotizador\Cotizador\obj\Debug\Cotizador.csprojResolveAssemblyReference.cache

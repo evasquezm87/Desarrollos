@@ -1,0 +1,44 @@
+﻿@model Cotizador.Models.ViewModels.CotizacionDetViewModel
+@{
+    ViewBag.Title = "Nueva Partida";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<!--Crear el formulario-->
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm("Add", "CotizacionDet", FormMethod.Post, new { role = "form", @class = "" }))
+        {
+            <!--Seguridad, para evitar que hagan peticiones de fuera, crea un token interno.
+                Es importante ponerlo-->
+            @Html.AntiForgeryToken()
+            <!--Cuando haya algun error provocado por el data annotarions enviar este
+                mensaje-->
+            @Html.ValidationMessage("error", new { @class = "text-danger" })
+                        
+
+            @Html.LabelFor(d => d.InvtId)
+            @Html.TextBoxFor(d => d.InvtId, new { @class = "form-control" })
+            @Html.ValidationMessage("Articulo", new { @class = "text-danger" })  <br />
+
+            @Html.LabelFor(d => d.Cantidad)
+            @Html.TextBoxFor(d => d.Cantidad, new { @class = "form-control" })
+            @Html.ValidationMessage("Cantidad", new { @class = "text-danger" })  <br />
+
+            @Html.LabelFor(d => d.PrecioUnitario)
+            @Html.TextBoxFor(d => d.PrecioUnitario, new { @class = "form-control" })
+            @Html.ValidationMessage("Precio Unitario", new { @class = "text-danger" })  <br />
+
+            @Html.LabelFor(d => d.MontoTotal)
+            @Html.TextBoxFor(d => d.MontoTotal, new { @class = "form-control" })
+            @Html.ValidationMessage("Monto Total", new { @class = "text-danger" })  <br />
+
+            <div style="text-align:right">
+                <input type="submit" class="btn btn-success" value="Guardar" />
+            </div>
+        }
+
+
+    </div>
+</div>
