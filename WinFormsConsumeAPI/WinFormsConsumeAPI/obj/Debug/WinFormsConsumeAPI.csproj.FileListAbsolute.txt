@@ -1,0 +1,13 @@
+C:\Users\Admin\Desktop\Desarrollos\WinFormsConsumeAPI\WinFormsConsumeAPI\obj\Debug\WinFormsConsumeAPI.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\Desarrollos\WinFormsConsumeAPI\WinFormsConsumeAPI\obj\Debug\WinFormsConsumeAPI.Form1.resources
+C:\Users\Admin\Desktop\Desarrollos\WinFormsConsumeAPI\WinFormsConsumeAPI\obj\Debug\WinFormsConsumeAPI.Properties.Resources.resources
+C:\Users\Admin\Desktop\Desarrollos\WinFormsConsumeAPI\WinFormsConsumeAPI\obj\Debug\WinFormsConsumeAPI.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\Desarrollos\WinFormsConsumeAPI\WinFormsConsumeAPI\obj\Debug\WinFormsConsumeAPI.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Desarrollos\WinFormsConsumeAPI\WinFormsConsumeAPI\bin\Debug\WinFormsConsumeAPI.exe.config
+C:\Users\Admin\Desktop\Desarrollos\WinFormsConsumeAPI\WinFormsConsumeAPI\bin\Debug\WinFormsConsumeAPI.exe
+C:\Users\Admin\Desktop\Desarrollos\WinFormsConsumeAPI\WinFormsConsumeAPI\bin\Debug\WinFormsConsumeAPI.pdb
+C:\Users\Admin\Desktop\Desarrollos\WinFormsConsumeAPI\WinFormsConsumeAPI\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Admin\Desktop\Desarrollos\WinFormsConsumeAPI\WinFormsConsumeAPI\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Admin\Desktop\Desarrollos\WinFormsConsumeAPI\WinFormsConsumeAPI\obj\Debug\WinFormsConsumeAPI.csproj.CopyComplete
+C:\Users\Admin\Desktop\Desarrollos\WinFormsConsumeAPI\WinFormsConsumeAPI\obj\Debug\WinFormsConsumeAPI.exe
+C:\Users\Admin\Desktop\Desarrollos\WinFormsConsumeAPI\WinFormsConsumeAPI\obj\Debug\WinFormsConsumeAPI.pdb
